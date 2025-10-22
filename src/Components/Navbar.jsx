@@ -1,9 +1,9 @@
 import React from "react";
-import LogoImg from "../assets/logo.png"
+import LogoImg from "../assets/logo.png";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-[#c2e7ff] text-gray-600 shadow-sm">
+    <div className="navbar bg-[#F9FAFB] shadow-md ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,15 +34,15 @@ const Navbar = () => {
             <li>
               <a>Services</a>
             </li>
-            
+
             <li>
               <a>My Profile</a>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost">
-            <img className="w-15" src={LogoImg} alt="Pet Logo" />
-            <p className="text-xl font-bold">Pet Care</p>
+        <a href="" className="flex items-center">
+          <img className="w-15" src={LogoImg} alt="Pet Logo" />
+          <p className="text-xl font-bold">Pet Care</p>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -54,14 +54,14 @@ const Navbar = () => {
           <li>
             <a>Services</a>
           </li>
-          
+
           <li>
             <a>My Profile</a>
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end  ">
+        <a className="btn ">Log In</a>
       </div>
     </div>
   );

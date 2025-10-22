@@ -1,0 +1,74 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.ibb.co/Q3yZTC80/coat.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.ibb.co/Qvfqk90z/winter-grooming-healing-balm-100.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Kennel Stay",
+    "providerName": "WarmPaws Resort",
+    "providerEmail": "stay@warmpaws.com",
+    "price": 45,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Cozy heated kennels and daily monitoring to ensure your pets stay warm and stress-free.",
+    "image": "https://i.ibb.co/fdGMDSBZ/us-FWSBYMBHSNJBKOLU0-V1-goods-img-v2-cat-house-m100-1-2.webp",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Nutritional Winter Diet Plan",
+    "providerName": "PetWell Nutrition",
+    "providerEmail": "support@petwell.com",
+    "price": 20,
+    "rating": 4.6,
+    "slotsAvailable": 8,
+    "description": "Customized diet plans with nutrient-rich meals to boost immunity and energy during winter.",
+    "image": "https://i.ibb.co/YBb5LN6K/Winter-Diet-Blog-Banner.webp",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Pet Massage & Heat Therapy",
+    "providerName": "FurTherapy Clinic",
+    "providerEmail": "care@furtherapy.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 6,
+    "description": "Gentle massages and heat therapy sessions to improve blood circulation and reduce stiffness in winter.",
+    "image": "https://i.ibb.co/Q3zbrjYt/Whole-Pet-i-Stock-149103810-1024x681.jpg",
+    "category": "Wellness"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Walk Assistance Service",
+    "providerName": "SnowSteps Pets",
+    "providerEmail": "walks@snowsteps.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 10,
+    "description": "Safe winter walking service with boot protection and weather-resistant gear for pets.",
+    "image": "https://i.ibb.co/TD8b7VMh/photo-1645344022619-cb3e1f5c4c57.jpg",
+    "category": "Outdoor"
+  }
+]
