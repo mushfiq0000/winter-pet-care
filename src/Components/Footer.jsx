@@ -3,7 +3,7 @@ import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-base-300 text-base-content pl-22 py-10">
+    <footer className="footer sm:footer-horizontal bg-blue-200  pl-22 py-10">
       <nav>
         <h6 className="footer-title">Contact Us</h6>
         <a className="link link-hover">info@warmpaws.com</a>

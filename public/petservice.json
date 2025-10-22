@@ -32,7 +32,7 @@
     "rating": 4.7,
     "slotsAvailable": 5,
     "description": "Cozy heated kennels and daily monitoring to ensure your pets stay warm and stress-free.",
-    "image": "https://i.ibb.co/fdGMDSBZ/us-FWSBYMBHSNJBKOLU0-V1-goods-img-v2-cat-house-m100-1-2.webp",
+    "image": "https://i.ibb.co/twX22csM/dog-house-511105254-2000-44a08349e14b4fbeb12b1141d345f7a3.jpg",
     "category": "Boarding"
   },
   {
@@ -70,5 +70,29 @@
     "description": "Safe winter walking service with boot protection and weather-resistant gear for pets.",
     "image": "https://i.ibb.co/TD8b7VMh/photo-1645344022619-cb3e1f5c4c57.jpg",
     "category": "Outdoor"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Pet Hydration & Skin Care Check",
+    "providerName": "FrostCare Vets",
+    "providerEmail": "contact@frostcarevets.com",
+    "price": 22,
+    "rating": 4.8,
+    "slotsAvailable": 7,
+    "description": "Winter skin and hydration check to prevent dryness, itching, and coat damage during cold months.",
+    "image": "https://i.ibb.co/xKM8C9fY/maine-coon-cat-veterinary-skin-exam-49286.webp",
+    "category": "Health"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Indoor Play & Exercise Session",
+    "providerName": "HappyTails Hub",
+    "providerEmail": "info@happytails.com",
+    "price": 18,
+    "rating": 4.9,
+    "slotsAvailable": 9,
+    "description": "Fun indoor play sessions and exercise routines to keep pets active when it’s too cold outside.",
+    "image": "https://i.ibb.co/HpCsM7SK/6758f9e4bdc653a8a6885945-1734011630875.jpg",
+    "category": "Activity"
   }
 ]
