@@ -12,7 +12,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           `mr-2 p-2 transition-all  duration-10 ${
             isActive
-              ? "text-black border-b-2 border-blue-200"
+              ? "text-black border-b-2 border-blue-300"
               : "hover:bg-white text-black"
           }`
         }
@@ -29,7 +29,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           `mr-2 p-2  transition-all  duration-10 ${
             isActive
-              ? "text-black border-b-2 border-blue-200"
+              ? "text-black border-b-2 border-blue-300"
               : "hover:bg-white text-black"
           }`
         }
@@ -44,7 +44,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           `mr-2 p-2  transition-all  duration-10 ${
             isActive
-              ? "text-black border-b-2 border-blue-200"
+              ? "text-black border-b-2 border-blue-300"
               : "hover:bg-white text-black"
           }`
         }
@@ -89,7 +89,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="flex items-center">
-          <img className="w-15" src={LogoImg} alt="Pet Logo" />
+          <img className="w-18" src={LogoImg} alt="Pet Logo" />
           <p className="text-xl font-bold">Pet Care</p>
         </Link>
       </div>
@@ -99,8 +99,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-2 ">
-        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-blue-400 hover:bg-blue-500  text-white">Register</button>
-        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-blue-400 hover:bg-blue-500  text-white">Log In</button>
+        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  text-blue-400 hover:bg-blue-400  bg-transparent hover:text-white rounded-md">Log In</button>
+        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg text-blue-400 hover:bg-blue-400  bg-transparent hover:text-white rounded-md">Register</button>
         
       </div>
     </div>

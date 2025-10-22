@@ -3,11 +3,11 @@ const Card = ({ serviceData }) => {
 
   return (
     <div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 ">
         {data.map(({ serviceId, image, serviceName, rating, price }) => (
           <div
             key={serviceId}
-            className="card bg-white shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform"
+            className=" card bg-white shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform"
           >
             <figure>
               <img

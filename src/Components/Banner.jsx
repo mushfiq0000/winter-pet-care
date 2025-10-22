@@ -24,7 +24,7 @@ const Banner = ({serviceData}) => {
 
   return (
 
-    <div className="flex justify-center py-10 bg-blue-100">
+    <div className="flex justify-center py-10 ]">
       <div className="relative w-11/12 md:w-2/3 h-150 overflow-hidden rounded-2xl shadow-xl">
         {slides.map((slide, index) => (
           <div
