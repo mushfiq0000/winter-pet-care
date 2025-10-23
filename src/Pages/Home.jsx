@@ -1,22 +1,26 @@
+import "animate.css";
 import { use } from "react";
 import Banner from "../Components/Banner";
-import Skeleton from "../loading/skeleton";
+import { ContextData } from "../Context/ContextData";
+import Loading from "../loading/Loading";
 import Card from "./Card";
 import ExtraSection from "./ExtraSection";
-import "animate.css";
-import { ContextData } from "../Context/ContextData";
+
 
 const Home = () => {
   const {loading} = use(ContextData)
 
+ 
   if (loading) {
-    return <Skeleton></Skeleton>
+    return (
+      <Loading/>
+    );
   }
 
 
   return (
-    <div className="bg-gray-100"> 
-        <div className="flex justify-center px-5 md:px-20 py-9">
+    <div className="bg-gray-100 "> 
+        <div className="flex justify-center px-5 md:px-50 py-9">
         <Banner></Banner>
       </div>
       <section className="py-12 px-6">

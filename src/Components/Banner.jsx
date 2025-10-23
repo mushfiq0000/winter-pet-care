@@ -1,19 +1,20 @@
+import React, { useContext } from "react";
 import { Link } from "react-router";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { ContextData } from "../Context/ContextData";
 
 const Banner = () => {
-  
-
-  
+  const { loading } = useContext(ContextData);
 
   const slides = [
     {
       id: 1,
       title: "Keep Your Pets Warm This Winter",
       subtitle: "Discover cozy outfits for your furry friends!",
-      image: "https://i.ibb.co/tp9XrsBY/Keeping-your-pets-safe-this-winter.jpg",
+      image:
+        "https://i.ibb.co/tp9XrsBY/Keeping-your-pets-safe-this-winter.jpg",
     },
     {
       id: 2,
@@ -42,32 +43,35 @@ const Banner = () => {
     arrows: true,
     fade: true,
     pauseOnHover: false,
+    accessibility: true,
   };
 
-
-  
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-20">
+        <span className="loading loading-ring loading-xl"></span>
+      </div>
+    );
+  }
 
   return (
-    <div className=" md:w-full md:h-160 rounded-2xl overflow-hidden shadow-lg relative">
+    <div className="w-full  relative rounded-2xl shadow-lg">
       <Slider {...settings}>
         {slides.map((slide) => (
-          <div key={slide.id}>
+          <div key={slide.id} tabIndex="-1">
             <div
-              className="relative w-full h-160 bg-cover bg-center flex items-center justify-center"
-              style={{
-                backgroundImage: `url(${slide.image})`,
-              }}
+              className="relative w-full h-[640px] md:h-[768px] lg:h-[1024px] bg-cover bg-center flex items-center justify-center rounded-xl "
+              style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-opacity-40"></div>
-
               <div className="relative text-center text-white px-4 max-w-2xl">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
                   {slide.title}
                 </h2>
-                <p className="text-lg md:text-xl mb-6">{slide.subtitle}</p>
+                <p className="text-md sm:text-lg md:text-xl mb-6">{slide.subtitle}</p>
                 <Link
                   to="/services"
-                  className="btn bg-transparent text-white border-1  hover:bg-blue-300 hover:text-white transition-all duration-300"
+                  className="inline-block px-6 py-2 border-2 border-white text-white font-semibold rounded hover:bg-yellow-400 hover:border-yellow-400 hover:text-black transition duration-300"
                 >
                   Explore Now
                 </Link>

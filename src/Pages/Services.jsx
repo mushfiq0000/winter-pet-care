@@ -1,21 +1,30 @@
-import React, { use } from "react";
 import "animate.css";
+import { use } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { ContextData } from "../Context/ContextData";
-import Skeleton from "../loading/skeleton";
-import { Link } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 
 const ServicesPage = () => {
   const { data, loading } = use(ContextData);
+  const navigate = useNavigate()
 
   if (loading) {
-    return <Skeleton></Skeleton>;
+    return (
+      <div className="text-center py-20">
+        <h2 className="text-2xl font-bold text-gray-700">
+          <span className="loading loading-ring loading-xl"></span>
+        </h2>
+      </div>
+    );
   }
 
-  const handelBookNow = () => {
+  const handelBookNow = (e) => {
+    e.preventDefault();
     console.log("click");
-    return(
-      alert("done")
-    )
+    
+    toast.success("Service booked successfully!");
+    navigate(0)
+    
   };
 
   return (

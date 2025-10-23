@@ -1,19 +1,44 @@
 import React, { use } from "react";
 import { Link } from "react-router";
 import { ContextData } from "../Context/ContextData";
+import { AuthContext } from "../Context/AuthContext";
+import Loading from "../loading/Loading";
+
+
 
 const Login = () => {
   const { loading } = use(ContextData);
-
+  const {signIn} = use(AuthContext)
+  
   if (loading) {
     return (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-bold text-gray-700">
-          <span className="loading loading-ring loading-xl"></span>
-        </h2>
-      </div>
+      <Loading/>
     );
   }
+  
+  // const location = useLocation()
+  
+
+  const handlelogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signIn(email, password)
+    .then((result) => {
+        const user = result.user;
+        console.log("User Created:", user);
+        alert("User Login Successfully!");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.Mewssage;
+
+        alert(errorCode, errorMessage);
+      });
+    
+  };
 
   return (
     <div
@@ -25,16 +50,21 @@ const Login = () => {
       <div className="md:w-1/3 mx-auto  card bg-transparent shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform ">
         <div className="card-body border-2 bg-white/50">
           <h1 className="text-5xl font-bold text-center">Login now!</h1>
-          <form >
+          <form onSubmit={handlelogin}>
             <fieldset className="fieldset">
+              {/* Email */}
               <label className=" font-semibold">Email</label>
               <input
+                name="email"
                 type="email"
                 className="input border-2 w-full bg-white/70 rounded-2xl"
                 placeholder="Email"
               />
+
+              {/* password */}
               <label className="font-semibold">Password</label>
               <input
+                name="password"
                 type="password"
                 className="input border-2 w-full bg-white/70 rounded-2xl"
                 placeholder="Password"
@@ -44,8 +74,8 @@ const Login = () => {
                   Forgot password?
                 </a>
               </div>
-              <button className="btn btn-neutral hover:bg-white/70  mt-4 rounded-2xl">
-                Login
+              <button type="submit" className="btn btn-neutral hover:bg-white/70  mt-4 rounded-2xl">
+                LogIn
               </button>
               <p className="text-md font-bold text-center ">
                 Don't Have An Acount Please Go{" "}

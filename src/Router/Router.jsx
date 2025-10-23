@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router";
 import mainLayout from "../Layout/mainLayout";
 import Home from "../Pages/Home";
-import Services from "../Pages/Services";
 import MyProfile from "../Pages/MyProfile";
 import ViewDetails from "../Pages/ViewDetails";
 import AuthLayout from "../Layout/AuthLayout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRoute from "../Context/PrivateRoute";
+import Services from "../Pages/Services";
 
 const router = createBrowserRouter([
   {
@@ -20,18 +21,24 @@ const router = createBrowserRouter([
       },
       {
         path:"/services",
-        Component: Services,
+        element: <PrivateRoute>
+          <Services></Services>
+        </PrivateRoute>,
       },
       {
         path:"/profile",
-        Component: MyProfile,
+        element: <PrivateRoute>
+          <MyProfile></MyProfile>
+        </PrivateRoute>,
       }
     ]
 
   },
   {
     path:"/view-details/:id",
-    Component: ViewDetails,
+    element: <PrivateRoute>
+          <ViewDetails></ViewDetails>
+        </PrivateRoute>,
   },
   {
     path:"/auth",
