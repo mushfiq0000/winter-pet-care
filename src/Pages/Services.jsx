@@ -13,6 +13,9 @@ const ServicesPage = () => {
 
   const handelBookNow = () => {
     console.log("click");
+    return(
+      alert("done")
+    )
   };
 
   return (
@@ -83,6 +86,7 @@ const ServicesPage = () => {
                   type="tect"
                   className="input border-2 w-full bg-white/70 rounded-lg"
                   placeholder="Name"
+                  required
                 />
 
                 <label className=" font-semibold">Email</label>
@@ -90,6 +94,7 @@ const ServicesPage = () => {
                   type="email"
                   className="input border-2 w-full bg-white/70 rounded-lg"
                   placeholder="Email"
+                  required
                 />
 
                 <button className="btn btn-neutral hover:bg-white/70  mt-4 rounded-lg">
