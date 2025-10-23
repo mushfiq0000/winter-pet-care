@@ -1,35 +1,40 @@
-import React from "react";
+import { use } from "react";
 import Banner from "../Components/Banner";
-import { useEffect } from "react";
-import { useState } from "react";
+import Skeleton from "../loading/skeleton";
 import Card from "./Card";
 import ExtraSection from "./ExtraSection";
+import "animate.css";
+import { ContextData } from "../Context/ContextData";
 
 const Home = () => {
-  const [serviceData, setServiceData] = useState([]);
+  const {loading} = use(ContextData)
 
-  useEffect(() => {
-    fetch("/petservice.json")
-      .then((res) => res.json())
-      .then((data) => setServiceData(data))
-      .catch((err) => console.error("Error loading JSON:", err));
-  }, []);
+  if (loading) {
+    return <Skeleton></Skeleton>
+  }
+
 
   return (
-    <div>
-      <div>
-        <Banner serviceData={serviceData}></Banner>
+    <div className="bg-gray-100"> 
+        <div>
+        <Banner></Banner>
       </div>
       <section className="py-12 px-6">
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <h2
+          className="text-3xl md:text-5xl py-3 font-bold text-center mb-8 animate__animated animate__zoomInUp"
+          style={{
+            animationDelay: "1s",
+          }}
+        >
           🐾 Popular Winter Care Services
         </h2>
-        <Card serviceData={serviceData}></Card>
+        <Card></Card>
       </section>
       <section>
-        <ExtraSection/>
+        <ExtraSection />
       </section>
-    </div>
+     </div>
+     
   );
 };
 

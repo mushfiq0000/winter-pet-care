@@ -3,6 +3,7 @@ import mainLayout from "../Layout/mainLayout";
 import Home from "../Pages/Home";
 import Services from "../Pages/Services";
 import MyProfile from "../Pages/MyProfile";
+import ViewDetails from "../Pages/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         Component:Home,
-        loader: () => fetch("/petservice.json")
+        // loader: () => fetch("/petservice.json")
       },
       {
         path:"/services",
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
         Component: MyProfile,
       }
     ]
+
+  },
+  {
+    path:"/view-details/:id",
+    Component: ViewDetails,
   },
 ]);
 

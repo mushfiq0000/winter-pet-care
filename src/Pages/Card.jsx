@@ -1,9 +1,13 @@
-const Card = ({ serviceData }) => {
-  const data = serviceData;
+import { use } from "react";
+import { ContextData } from "../Context/ContextData";
+import { Link } from "react-router";
+
+const Card = () => {
+  const {data} = use(ContextData)
 
   return (
     <div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 ">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
         {data.map(({ serviceId, image, serviceName, rating, price }) => (
           <div
             key={serviceId}
@@ -21,9 +25,9 @@ const Card = ({ serviceData }) => {
               <p className="text-gray-500">⭐ {rating || "4.8"} / 5</p>
               <p className="font-medium">💰 Price: ${price || "25"}</p>
               <div className="card-actions justify-end mt-2">
-                <button className="btn btn-sm bg-blue-400 text-white hover:bg-blue-500 border-none">
+                <Link to={`/view-details/${serviceId}`} className="btn btn-sm bg-blue-400 text-white hover:bg-blue-500 border-none">
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           </div>
