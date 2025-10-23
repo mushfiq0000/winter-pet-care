@@ -2,39 +2,46 @@ import "animate.css";
 import { use } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { ContextData } from "../Context/ContextData";
-import { Navigate, useNavigate } from "react-router";
 
 const ServicesPage = () => {
   const { data, loading } = use(ContextData);
-  const navigate = useNavigate()
 
   if (loading) {
     return (
       <div className="text-center py-20">
-        <h2 className="text-2xl font-bold text-gray-700">
-          <span className="loading loading-ring loading-xl"></span>
-        </h2>
+        <span className="loading loading-ring loading-xl"></span>
       </div>
     );
   }
 
-  const handelBookNow = (e) => {
+  const handleBookNow = (e) => {
     e.preventDefault();
-    console.log("click");
-    
-    toast.success("Service booked successfully!");
-    navigate(0)
-    
+    e.target.reset();
+
+    toast.success("🎉 booked successfully!", {
+      duration: 3000,
+      style: {
+        background: "#4ade80",
+        color: "#fff",
+        fontWeight: "600",
+        borderRadius: "10px",
+      },
+    });
+    document.getElementById("my_modal_1").close();
+
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
+      {/* Toast Container */}
+      <Toaster position="top-center" reverseOrder={false} />
+
       <h2 className="text-4xl font-bold text-center text-blue-800 mb-10 animate__animated animate__fadeInDown">
         ❄️ Winter Care Services for Your Pets 🐾
       </h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {data.map((service, index) => (
+        {data?.map((service, index) => (
           <div
             key={service.serviceId}
             className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 animate__animated animate__fadeInUp"
@@ -68,52 +75,63 @@ const ServicesPage = () => {
                 </span>
               </div>
 
-              <div className="flex justify-between text-sm text-gray-500">
+              <div className="flex justify-between text-sm text-gray-500 mb-2">
                 <span>Category: {service.category}</span>
                 <span>Slots: {service.slotsAvailable}</span>
               </div>
+
+              <button
+                className="btn w-full rounded-lg mt-2 bg-blue-400 text-white hover:bg-blue-500 transition"
+                onClick={() =>
+                  document.getElementById("my_modal_1").showModal()
+                }
+              >
+                Book Now
+              </button>
             </div>
           </div>
         ))}
       </div>
-      {/* Use Modal */}
 
-      <div className="flex justify-center py-10">
-        <button
-          className="btn w-1/3 rounded-lg mt-2 bg-blue-400 text-white"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          Book Now
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box  bg-white/80">
-            <h1 className="text-5xl font-bold text-center">Book Service!</h1>
-            <form onSubmit={handelBookNow}>
-              <fieldset className="fieldset">
-                <label className="font-semibold">Name</label>
-                <input
-                  type="tect"
-                  className="input border-2 w-full bg-white/70 rounded-lg"
-                  placeholder="Name"
-                  required
-                />
+      {/* Booking Modal */}
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box bg-white/90 backdrop-blur-md border border-gray-200">
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
 
-                <label className=" font-semibold">Email</label>
-                <input
-                  type="email"
-                  className="input border-2 w-full bg-white/70 rounded-lg"
-                  placeholder="Email"
-                  required
-                />
+          <h1 className="text-3xl font-bold text-center mb-5">Book Service!</h1>
 
-                <button className="btn btn-neutral hover:bg-white/70  mt-4 rounded-lg">
-                  Book Now
-                </button>
-              </fieldset>
-            </form>
-          </div>
-        </dialog>
-      </div>
+          <form onSubmit={handleBookNow}>
+            <fieldset className="fieldset space-y-3">
+              <label className="font-semibold">Name</label>
+              <input
+                type="text"
+                className="input border-2 w-full bg-white/70 rounded-lg"
+                placeholder="Name"
+                required
+              />
+
+              <label className="font-semibold">Email</label>
+              <input
+                type="email"
+                className="input border-2 w-full bg-white/70 rounded-lg"
+                placeholder="Email"
+                required
+              />
+
+              <button
+                type="submit"
+                className="btn btn-neutral hover:bg-blue-500 hover:text-white mt-4 rounded-lg w-full"
+              >
+                Confirm Booking
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </dialog>
     </div>
   );
 };

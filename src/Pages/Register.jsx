@@ -3,7 +3,8 @@ import { Link } from "react-router";
 import { ContextData } from "../Context/ContextData";
 import { AuthContext } from "../Context/AuthContext";
 import Loading from "../loading/Loading";
-
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { loading } = use(ContextData);
@@ -11,9 +12,7 @@ const Register = () => {
   const { createUser, setUser } = use(AuthContext);
 
   if (loading) {
-    return (
-      <Loading/>
-    );
+    return <Loading />;
   }
 
   const handleRegister = (e) => {
@@ -30,13 +29,15 @@ const Register = () => {
         console.log("User Created:", user);
         setUser(user);
         form.reset();
-        alert("User Registered Successfully!");
+        Swal.fire({
+          title: "Register Complete!",
+          text: "You clicked the button!",
+          icon: "success",
+        });
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.Mewssage;
-
-        alert(errorCode, errorMessage);
+        
+        toast.error(error.message || "Failed to login. Please try again.");
       });
   };
 

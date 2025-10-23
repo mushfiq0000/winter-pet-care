@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ContextData } from "../Context/ContextData";
+import "./banner.css"
 
 const Banner = () => {
   const { loading } = useContext(ContextData);
@@ -31,8 +32,10 @@ const Banner = () => {
         "https://i.ibb.co/tPCVpr3W/Winter-Dog-Walk-Header-Image-Social-Featured-1024x538.png",
     },
   ];
+  
 
   const settings = {
+    
     dots: true,
     infinite: true,
     autoplay: true,
@@ -41,7 +44,7 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    fade: true,
+    fade: false,
     pauseOnHover: false,
     accessibility: true,
   };

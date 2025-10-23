@@ -5,22 +5,21 @@ import { ContextData } from "../Context/ContextData";
 import Loading from "../loading/Loading";
 import Card from "./Card";
 import ExtraSection from "./ExtraSection";
-
+import "animate.css";
 
 const Home = () => {
-  const {loading} = use(ContextData)
+  const { loading } = use(ContextData);
 
- 
   if (loading) {
-    return (
-      <Loading/>
-    );
+    return <Loading />;
   }
 
-
   return (
-    <div className="bg-gray-100 "> 
-        <div className="flex justify-center px-5 md:px-50 py-9">
+    <div className="bg-gray-100 ">
+      <h1 className="text-5xl py-10 font-bold flex item-center justify-center">
+        <p className="animate__animated animate__bounce"> 👋 </p> Welcome to WarmPaws Pet Care{" "}
+      </h1>
+      <div className="flex justify-center px-5 md:px-50 py-9">
         <Banner></Banner>
       </div>
       <section className="py-12 px-6">
@@ -37,8 +36,7 @@ const Home = () => {
       <section>
         <ExtraSection />
       </section>
-     </div>
-     
+    </div>
   );
 };
 

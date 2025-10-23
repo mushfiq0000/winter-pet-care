@@ -1,23 +1,21 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { ContextData } from "../Context/ContextData";
 import { AuthContext } from "../Context/AuthContext";
 import Loading from "../loading/Loading";
-
-
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { loading } = use(ContextData);
-  const {signIn} = use(AuthContext)
-  
+  const { signIn } = use(AuthContext);
+  const location = useLocation();
+
+  const navigate = useNavigate();
+
   if (loading) {
-    return (
-      <Loading/>
-    );
+    return <Loading />;
   }
-  
-  // const location = useLocation()
-  
 
   const handlelogin = (e) => {
     e.preventDefault();
@@ -26,18 +24,22 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
     signIn(email, password)
-    .then((result) => {
+      .then((result) => {
         const user = result.user;
         console.log("User Created:", user);
-        alert("User Login Successfully!");
+        navigate(`${location.state ? location.state : "/"}`);
+        Swal.fire({
+          title: "Login Complete!",
+          text: "You clicked the button!",
+          icon: "success",
+        });
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.Mewssage;
+        // const errorCode = error.code;
+        // const errorMessage = error.Mewssage;
 
-        alert(errorCode, errorMessage);
+        toast.error(error.message || "Failed to login. Please try again.");
       });
-    
   };
 
   return (
@@ -74,7 +76,10 @@ const Login = () => {
                   Forgot password?
                 </a>
               </div>
-              <button type="submit" className="btn btn-neutral hover:bg-white/70  mt-4 rounded-2xl">
+              <button
+                type="submit"
+                className="btn btn-neutral hover:bg-white/70  mt-4 rounded-2xl"
+              >
                 LogIn
               </button>
               <p className="text-md font-bold text-center ">
