@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div className="bg-gray-100"> 
-        <div>
+        <div className="flex justify-center px-5 md:px-20 py-9">
         <Banner></Banner>
       </div>
       <section className="py-12 px-6">

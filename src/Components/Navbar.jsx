@@ -99,8 +99,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-2 ">
-        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  text-blue-400 hover:bg-blue-400  bg-transparent hover:text-white rounded-md">Log In</button>
-        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg text-blue-400 hover:bg-blue-400  bg-transparent hover:text-white rounded-md">Register</button>
+        <Link to="/auth/login" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  text-blue-400 hover:bg-blue-400  bg-transparent hover:text-white rounded-md">Log In</Link>
+        <Link to="/auth/register" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg text-blue-400 hover:bg-blue-400  bg-transparent hover:text-white rounded-md">Register</Link>
         
       </div>
     </div>

@@ -11,6 +11,10 @@ const ServicesPage = () => {
     return <Skeleton></Skeleton>;
   }
 
+  const handelBookNow = () => {
+    console.log("click");
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-4xl font-bold text-center text-blue-800 mb-10 animate__animated animate__fadeInDown">
@@ -56,14 +60,45 @@ const ServicesPage = () => {
                 <span>Category: {service.category}</span>
                 <span>Slots: {service.slotsAvailable}</span>
               </div>
-              <Link to={`/view-details/${service.serviceId}`}>
-                <button className="w-full mt-5 bg-blue-400 hover:bg-blue-500  text-white py-2 rounded-lg font-medium hover:from-blue-700 hover:to-blue-500 transition duration-300">
-                  View Details
-                </button>
-              </Link>
             </div>
           </div>
         ))}
+      </div>
+      {/* Use Modal */}
+
+      <div className="flex justify-center py-10">
+        <button
+          className="btn w-1/3 rounded-lg mt-2 bg-blue-400 text-white"
+          onClick={() => document.getElementById("my_modal_1").showModal()}
+        >
+          Book Now
+        </button>
+        <dialog id="my_modal_1" className="modal">
+          <div className="modal-box  bg-white/80">
+            <h1 className="text-5xl font-bold text-center">Book Service!</h1>
+            <form onSubmit={handelBookNow}>
+              <fieldset className="fieldset">
+                <label className="font-semibold">Name</label>
+                <input
+                  type="tect"
+                  className="input border-2 w-full bg-white/70 rounded-lg"
+                  placeholder="Name"
+                />
+
+                <label className=" font-semibold">Email</label>
+                <input
+                  type="email"
+                  className="input border-2 w-full bg-white/70 rounded-lg"
+                  placeholder="Email"
+                />
+
+                <button className="btn btn-neutral hover:bg-white/70  mt-4 rounded-lg">
+                  Book Now
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </dialog>
       </div>
     </div>
   );
