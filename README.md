@@ -25,7 +25,3 @@ Winter Pet Care is a web application designed to provide pet owners with conveni
 - [SweetAlert2](https://sweetalert2.github.io/) - Beautiful alerts and popups.
 - [React Fast Marquee](https://www.npmjs.com/package/react-fast-marquee) - Smooth scrolling marquee for text/content.
 
-## How to Run Locally
-1. Clone the repository:
-```bash
-git clone https://github.com/mushfiq0000/winter-pet-care.git
