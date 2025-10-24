@@ -79,10 +79,10 @@ const Navbar = () => {
     <div className="navbar bg-[#153f67] text-white shadow-md md:px-15">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost  lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 "
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -98,7 +98,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="bg-[#153f67] menu menu-sm dropdown-content  rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {link}
           </ul>
@@ -127,7 +127,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="dropdown-content -ml-19  bg-[#c67033]  z-1 w-55 p-2 shadow-sm rounded-xl"
+                className="dropdown-content -ml-30  bg-[#c67033]  z-1 w-70 p-2 shadow-sm rounded-xl"
               >
                 <p className="flex items-center justify-center gap-2"><MdDriveFileRenameOutline />{user.displayName}</p>
                 <p className="flex items-center justify-center gap-2"><MdMarkEmailRead />{user.email}</p>

@@ -32,6 +32,10 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (name.length  > 15) {
+      return setPassError("That name is too long — try 14 characters or less.");
+    }
+
 
     const passRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
           if (!passRegex.test(password)) {

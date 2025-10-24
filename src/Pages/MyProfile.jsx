@@ -25,10 +25,17 @@ const MyProfile = () => {
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
-    // const form = e.target;
+    const form = e.target;
+    const name = form.name.value;
     // const email = form.email.value;
     // const photo = form.photo.value;
     // console.log(email, photo);
+
+    if (name.length  > 15) {
+      return toast.error("⚠️ That name is too long — try 14 characters or less.");
+    }
+
+
     photoUpdate({ photoURL: photo , displayName: name})
       .then(() => {
         setUser({ ...user, photoURL: photo });
@@ -80,8 +87,8 @@ const MyProfile = () => {
           {user.displayName}
         </h2>
         <div className="flex items-center text-[#153f67] space-x-3">
-          <AiOutlineMail className="text-2xl" />
-          <span className="text-lg">{user.email}</span>
+          <AiOutlineMail className="text-xl" />
+          <p className="text-md">{user.email}</p>
         </div>
         <div className="flex space-x-4 mt-4">
           <button
