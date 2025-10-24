@@ -55,6 +55,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const authData = {
+    auth,
     user,
     setUser,
     createUser,

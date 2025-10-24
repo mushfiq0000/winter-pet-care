@@ -98,7 +98,7 @@ const Login = () => {
               <input
                 name="email"
                 type="email"
-                className="input border-2 w-full bg-white/70 rounded-2xl"
+                className="input border-2 w-full bg-white/70 rounded-md"
                 placeholder="Email"
               />
 
@@ -108,7 +108,7 @@ const Login = () => {
                 <input
                   name="password"
                   type={show ? "text" : "password"}
-                  className="input border-2 w-full bg-white/70 rounded-2xl"
+                  className="input border-2 w-full bg-white/70 rounded-md"
                   placeholder="Password"
                 />
                 <span
@@ -119,25 +119,23 @@ const Login = () => {
                 </span>
               </div>
               <div>
-                <a className="link link-hover font-semibold">
+                <Link to="/auth/forget" className="link link-hover font-semibold">
                   Forgot password?
-                </a>
+                </Link>
               </div>
               {
                 error ? <p className="font-bold text-red-700 text-center border py-2">{error}</p> : ""
               }
               <button
                 type="submit"
-                className="btn btn-neutral hover:bg-white/70  mt-4 rounded-2xl"
+                className="btn btn-neutral hover:bg-white/70  mt-4 rounded-md"
               >
                 LogIn
               </button>
-              <div>
-                <div className="divider font-bold text-gray-600">----------------------- OR ------------------------</div>
-              </div>
+              
 
               {/* Google */}
-              <button onClick={handleGoogleLogIn} className="btn bg-white text-black border-0 shadow-md rounded-lg">
+              <button onClick={handleGoogleLogIn} className="btn w-full bg-white text-black border-0 shadow-md rounded-lg mt-2">
                 <svg
                   aria-label="Google logo"
                   width="20"

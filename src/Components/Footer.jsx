@@ -3,7 +3,7 @@ import { RiInstagramFill } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-[#17436c] text-white  pl-22 py-10">
+    <footer className="footer sm:footer-horizontal bg-[#17436c] text-white  pl-22 py-15">
       <nav>
         <h6 className="footer-title">Contact Us</h6>
         <a className="link link-hover">info@warmpaws.com</a>

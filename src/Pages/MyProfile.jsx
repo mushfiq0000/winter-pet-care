@@ -1,28 +1,43 @@
 // src/pages/MyProfile.jsx
-import React, { useContext } from "react";
-import { FaUserEdit } from "react-icons/fa";
-import { AiOutlineMail } from "react-icons/ai";
-import { AuthContext } from "../Context/AuthContext";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { AiOutlineMail } from "react-icons/ai";
+import { FaUserEdit } from "react-icons/fa";
+import { AuthContext } from "../Context/AuthContext";
+import { useNavigate } from "react-router";
 
 const MyProfile = () => {
   const { user, photoUpdate, setUser } = useContext(AuthContext);
+  
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [photo, setPhoto] = useState("")
+  const navigate = useNavigate();
+
+
+  useEffect(()=>{
+    if(user){
+      setName(user.displayName)
+      setEmail(user.email)
+      setPhoto(user.photoURL)
+    }
+  },[user])
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const photo = form.photo.value;
-    console.log(email, photo);
-
-    photoUpdate({ photoURL: photo })
+    // const form = e.target;
+    // const email = form.email.value;
+    // const photo = form.photo.value;
+    // console.log(email, photo);
+    photoUpdate({ photoURL: photo , displayName: name})
       .then(() => {
         setUser({ ...user, photoURL: photo });
       })
       .catch((error) => {
         toast.error(error.message || "Please try again.");
       });
-    form.reset();
+      navigate(0)
+     
   };
 
   return (
@@ -92,22 +107,33 @@ const MyProfile = () => {
 
             <form onSubmit={handleUpdateProfile}>
               <fieldset className="fieldset space-y-3">
+                <label className="font-semibold">Name</label>
+                <input
+                onChange={(e)=>setName(e.target.value)}
+                value={name}
+                  name="name"
+                  type="text"
+                  className="input border-2 w-full bg-white/70 rounded-lg"
+                  placeholder="Name"
+                />
                 <label className="font-semibold">Email</label>
                 <input
+                value={email}
                   name="email"
                   type="email"
                   className="input border-2 w-full bg-white/70 rounded-lg"
                   placeholder="Email"
-                  required
+                  disabled
                 />
 
                 <label className="font-semibold">Photo URL</label>
                 <input
+                onChange={(e)=>setPhoto(e.target.value)}
+                value={photo}
                   name="photoURL"
                   type="text"
                   className="input border-2 w-full bg-white/70 rounded-lg"
                   placeholder="Photo URL"
-                  required
                 />
 
                 <button

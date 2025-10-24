@@ -94,7 +94,7 @@ const Register = () => {
               <input
                 name="name"
                 type="text"
-                className="input border-2 w-full bg-white/70 rounded-2xl"
+                className="input border-2 w-full bg-white/70 rounded-md"
                 placeholder="Name"
                 required
               />
@@ -103,7 +103,7 @@ const Register = () => {
               <input
                 name="photo"
                 type="taxt"
-                className="input border-2 w-full bg-white/70 rounded-2xl"
+                className="input border-2 w-full bg-white/70 rounded-md"
                 placeholder="Photo url"
                 required
               />
@@ -112,7 +112,7 @@ const Register = () => {
               <input
                 name="email"
                 type="email"
-                className="input border-2 w-full bg-white/70 rounded-2xl"
+                className="input border-2 w-full bg-white/70 rounded-md"
                 placeholder="Email"
                 required
               />
@@ -123,7 +123,7 @@ const Register = () => {
                 <input
                   name="password"
                   type={show ? "text" : "password"}
-                  className="input border-2 w-full bg-white/70 rounded-2xl"
+                  className="input border-2 w-full bg-white/70 rounded-md"
                   placeholder="Password"
                   required
                 />
@@ -135,7 +135,7 @@ const Register = () => {
                 </span>
               </div>
               <p className="text-red-600 font-semibold">{passError}</p>
-              <button className="btn btn-neutral hover:bg-white/70  mt-4 rounded-2xl">
+              <button className="btn btn-neutral hover:bg-white/70  mt-4 rounded-md">
                 Register
               </button>
               <p className="text-md font-bold text-center">

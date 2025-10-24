@@ -4,8 +4,10 @@ import Navbar from '../Components/Navbar';
 import ViewDetailsFream from './ViewDetailsFream';
 
 const ViewDetails = () => {
+  
   return (
     <div>
+      <title>{}</title>
       <header>
         <Navbar />
       </header>

@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoute from "../Context/PrivateRoute";
 import Services from "../Pages/Services";
+import Forget from "../Pages/Forget";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         path:"/auth/register",
         Component: Register
       },
+      {
+        path:"/auth/forget",
+        Component: Forget,
+      }
     ]
   },
 ]);
