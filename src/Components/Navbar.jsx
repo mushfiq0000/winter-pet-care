@@ -1,24 +1,26 @@
 import { use } from "react";
+import toast from "react-hot-toast";
 import { CgProfile } from "react-icons/cg";
 import { IoHomeOutline } from "react-icons/io5";
 import { RiServiceLine } from "react-icons/ri";
 import { Link, NavLink } from "react-router";
 import LogoImg from "../assets/logo.png";
-import userIcon from "../assets/user.png";
 import { AuthContext } from "../Context/AuthContext";
+import { MdDriveFileRenameOutline, MdMarkEmailRead } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
   const handleLogout = () => {
     logOut()
       .then(() => {
-        alert("logout successfully")
+        // alert("logout successfully")
+        toast.success("Successfully LogOut!");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.Mewssage;
-
-        alert(errorCode, errorMessage);
+        // const errorCode = error.code;
+        // const errorMessage = error.Mewssage;
+        // alert(errorCode, errorMessage);
+        toast.error(error.message || "Failed to logOut. Please try again.");
       });
   };
 
@@ -28,8 +30,8 @@ const Navbar = () => {
         className={({ isActive }) =>
           `mr-2 p-2 transition-all  duration-10 ${
             isActive
-              ? "text-black border-b-2 border-blue-300"
-              : "hover:bg-white text-black"
+              ? "text-white border-b-2 border-[#c67033]"
+              : " text-[#c67033]"
           }`
         }
         to="/"
@@ -45,8 +47,8 @@ const Navbar = () => {
         className={({ isActive }) =>
           `mr-2 p-2  transition-all  duration-10 ${
             isActive
-              ? "text-black border-b-2 border-blue-300"
-              : "hover:bg-white text-black"
+              ? "text-white border-b-2 border-[#c67033]"
+              : " text-[#c67033]"
           }`
         }
         to="/services"
@@ -60,8 +62,8 @@ const Navbar = () => {
         className={({ isActive }) =>
           `mr-2 p-2  transition-all  duration-10 ${
             isActive
-              ? "text-black border-b-2 border-blue-300"
-              : "hover:bg-white text-black"
+              ? "text-white border-b-2 border-[#c67033]"
+              : " text-[#c67033]"
           }`
         }
         to="/profile"
@@ -74,7 +76,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-[#F9FAFB] shadow-md md:px-15">
+    <div className="navbar bg-[#153f67] text-white shadow-md md:px-15">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -102,31 +104,49 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="flex items-center">
-          <img className="w-15" src={LogoImg} alt="Pet Logo" />
+          <img className="w-20" src={LogoImg} alt="Pet Logo" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{link}</ul>
       </div>
-      <img
-        className="w-15 rounded-full"
-        src={`${user ? user.photoURL : userIcon}`}
-        alt=""
-      />
+
       <div className="navbar-end gap-2 ">
         {user ? (
-          <button
-            onClick={handleLogout}
-            to="/auth/register"
-            className="btn  sm:btn-sm md:btn-md lg:btn-lg text-white hover:bg-gray-600  bg-gray-800 hover:text-white rounded-md"
-          >
-            LogOut
-          </button>
+          <div className="flex items-center gap-5">
+            
+
+            <Link to={"/profile"} className="dropdown dropdown-hover cursor-pointer">
+              <div tabIndex={0} role="button" className="m-1">
+                <img
+              className="w-15 h-15 object-cover rounded-full"
+              src={user.photoURL}
+              alt="user"
+              
+            />
+              </div>
+              <ul
+                tabIndex="-1"
+                className="dropdown-content -ml-19  bg-[#c67033]  z-1 w-55 p-2 shadow-sm rounded-xl"
+              >
+                <p className="flex items-center justify-center gap-2"><MdDriveFileRenameOutline />{user.displayName}</p>
+                <p className="flex items-center justify-center gap-2"><MdMarkEmailRead />{user.email}</p>
+              </ul>
+            </Link>
+
+            <button
+              onClick={handleLogout}
+              to="/auth/register"
+              className="btn  sm:btn-sm md:btn-md lg:btn-lg text-white hover:bg-gray-600 border-0  bg-[#c67033] hover:text-white rounded-md"
+            >
+              LogOut
+            </button>
+          </div>
         ) : (
-          <div>
+          <div className="flex items-center gap-5">
             <Link
               to="/auth/login"
-              className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  text-white hover:bg-gray-600  bg-gray-800 hover:text-white rounded-md"
+              className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  text-white hover:bg-gray-600  bg-[#c67033] border-0 hover:text-white rounded-md"
             >
               {" "}
               Log In{" "}
@@ -134,7 +154,7 @@ const Navbar = () => {
 
             <Link
               to="/auth/register"
-              className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  text-white hover:bg-gray-600  bg-gray-800 hover:text-white rounded-md"
+              className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  text-white hover:bg-gray-600  bg-[#c67033] border-0 hover:text-white rounded-md"
             >
               Register{" "}
             </Link>

@@ -34,7 +34,7 @@ const ViewDetailsFream = () => {
   if (!details) {
     return (
       <div className="text-center py-20">
-        <h2 className="text-2xl font-bold text-gray-700">
+        <h2 className="text-2xl font-bold text-[#17436c]">
           <span className="loading loading-ring loading-xl"></span>
         </h2>
         <button className="btn btn-primary mt-4" onClick={() => navigate(-1)}>
@@ -69,14 +69,14 @@ const ViewDetailsFream = () => {
                 <p className="badge p-4 rounded-md">
                   Slots: {details.slotsAvailable}
                 </p>
-                <p className="text-blue-700">${details.price}</p>
+                <p className="text-[blue-700]">${details.price}</p>
                 <p className="text-yellow-600">⭐ {details.rating}</p>
                 <p className="badge p-4 rounded-md">
                   Category: {details.category}
                 </p>
               </div>
 
-              <button className="btn btn-primary" onClick={() => navigate(-1)}>
+              <button className="btn btn-primary  text-white hover:bg-gray-600  bg-[#c67033] hover:text-whit" onClick={() => navigate(-1)}>
                 <IoArrowBack /> Go Back
               </button>
             </div>

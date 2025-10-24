@@ -1,15 +1,24 @@
-import React, { use } from "react";
-import { Link } from "react-router";
-import { ContextData } from "../Context/ContextData";
-import { AuthContext } from "../Context/AuthContext";
-import Loading from "../loading/Loading";
-import Swal from "sweetalert2";
+import { use, useState } from "react";
 import toast from "react-hot-toast";
+import { FaEye } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router";
+import Swal from "sweetalert2";
+import logo2Img from "../assets/logo2.png";
+import { AuthContext } from "../Context/AuthContext";
+import { ContextData } from "../Context/ContextData";
+import Loading from "../loading/Loading";
+import { RiEyeCloseFill } from "react-icons/ri";
 
 const Register = () => {
+  const [show, setShow] = useState(false);
   const { loading } = use(ContextData);
+  const location = useLocation();
+  const [passError, setPassError] = useState('')
+  const [emailError, setEmailError] = useState('')
 
-  const { createUser, setUser } = use(AuthContext);
+  const navigate = useNavigate();
+
+  const { createUser, setUser, updateUser } = use(AuthContext);
 
   if (loading) {
     return <Loading />;
@@ -18,16 +27,42 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log("click", name, password, email, form);
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+
+    const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          if (!passRegex.test(password)) {
+             toast.error(
+              "⚠️ Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@, $, !, %, , ?, &)."
+            );
+            setPassError("Please choose a stronger password. Try a mix of letters, numbers and symbols.")
+            return;
+          }else{
+            setPassError("")
+          }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if(!emailRegex.test(email)){
+            setEmailError("Please enter a valid email address (e.g., example@domain.com).")
+          }else{
+            setEmailError("")
+          }
+
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log("User Created:", user);
-        setUser(user);
+        navigate(`${location.state ? location.state : "/"}`);
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            toast.error(error.message || "Please try again.");
+          });
         form.reset();
         Swal.fire({
           title: "Register Complete!",
@@ -36,10 +71,13 @@ const Register = () => {
         });
       })
       .catch((error) => {
-        
         toast.error(error.message || "Failed to login. Please try again.");
       });
   };
+
+
+
+
 
   return (
     <div
@@ -50,6 +88,9 @@ const Register = () => {
     >
       <div className="md:w-1/3 mx-auto  card bg-transparent shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform ">
         <div className="card-body border-2 bg-white/50">
+          <div className="flex justify-center items-center">
+            <img className="w-25" src={logo2Img} alt="" />
+          </div>
           <h1 className="text-5xl font-bold text-center">Register now!</h1>
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">
@@ -82,15 +123,26 @@ const Register = () => {
                 placeholder="Email"
                 required
               />
+              <p className="text-red-600 font-semibold">{emailError}</p>
+
               {/* password */}
-              <label className="font-semibold">Password</label>
-              <input
-                name="password"
-                type="password"
-                className="input border-2 w-full bg-white/70 rounded-2xl"
-                placeholder="Password"
-                required
-              />
+              <div className="relative">
+                <label className="font-semibold">Password</label>
+                <input
+                  name="password"
+                  type={show ? "text" : "password"}
+                  className="input border-2 w-full bg-white/70 rounded-2xl"
+                  placeholder="Password"
+                  required
+                />
+                <span
+                  onClick={() => setShow(!show)}
+                  className="absolute right-4 top-7 text-lg cursor-pointer z-50"
+                >
+                  {show ? <RiEyeCloseFill /> : <FaEye />}
+                </span>
+              </div>
+              <p className="text-red-600 font-semibold">{passError}</p>
               <button className="btn btn-neutral hover:bg-white/70  mt-4 rounded-2xl">
                 Register
               </button>

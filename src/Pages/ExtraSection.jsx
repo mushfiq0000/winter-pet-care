@@ -68,7 +68,7 @@ const ExtraSection = () => {
   return (
     <div>
       {/* tips section */}
-      <section className="py-12 px-6 bg-white">
+      <section className="py-12 px-6 ">
         <h2
           className="text-3xl md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__bounce"
           style={{
@@ -79,14 +79,14 @@ const ExtraSection = () => {
           ❄️ Winter Care Tips for Pets
         </h2>
         <Marquee delay={2} pauseOnHover={true}>
-          <div className="grid grid-cols-4 gap-6 ml-5">
+          <div className="grid grid-cols-4 gap-6 ml-5  text-white">
             {winterTips.map((tips) => (
               <div
                 key={tips.id}
-                className="p-4 bg-blue-100 rounded-xl shadow-sm hover:shadow-md transition-all"
+                className="p-4 bg-[#17436c] rounded-xl shadow-sm hover:shadow-md transition-all"
               >
                 <h3 className="text-xl font-semibold mb-2">{tips.title}</h3>
-                <p className="text-gray-700">{tips.detail}</p>
+                <p className="">{tips.detail}</p>
               </div>
             ))}
           </div>
@@ -94,7 +94,7 @@ const ExtraSection = () => {
       </section>
 
       {/* Expert Vets section */}
-      <div className="py-10 bg-blue-100">
+      <div className="py-10">
         <h2
           className="text-3xl md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__rubberBand"
           style={{
@@ -109,19 +109,19 @@ const ExtraSection = () => {
           {experts.map((details) => (
             <div
               key={details.id}
-              className="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center hover:scale-105 transition-transform duration-300"
+              className="bg-[#17436c] text-white rounded-2xl shadow-lg p-5 flex flex-col items-center hover:scale-105 transition-transform duration-300"
             >
               <img
                 src={details.photo}
                 alt={details.name}
-                className="w-32 h-32 rounded-full border-4 border-blue-200 object-cover mb-4"
+                className="w-32 h-32 rounded-full border-4 border-[#c67033] object-cover mb-4"
               />
               <h3 className="text-xl font-semibold">{details.name}</h3>
-              <p className="text-blue-400 font-medium mb-1">
+              <p className="text-[#c67033] font-medium mb-1">
                 {details.specialization}
               </p>
-              <p className="text-gray-500 text-sm mb-1">{details.qualification}</p>
-              <p className="text-gray-400 text-sm mb-2">
+              <p className=" text-sm mb-1">{details.qualification}</p>
+              <p className=" text-sm mb-2">
                 Experience: {details.experience}
               </p>
             </div>

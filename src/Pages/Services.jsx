@@ -32,33 +32,33 @@ const ServicesPage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-4 py-10 ">
       {/* Toast Container */}
       <Toaster position="top-center" reverseOrder={false} />
 
-      <h2 className="text-4xl font-bold text-center text-blue-800 mb-10 animate__animated animate__fadeInDown">
+      <h2 className="text-4xl font-bold text-center text-[#17436c] mb-10 animate__animated animate__fadeInDown">
         ❄️ Winter Care Services for Your Pets 🐾
       </h2>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
         {data?.map((service, index) => (
           <div
             key={service.serviceId}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 animate__animated animate__fadeInUp"
+            className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 animate__animated animate__fadeInUp "
             style={{
               animationDelay: `${index * 0.2}s`,
               animationIterationCount: 1,
             }}
           >
-            <div className="h-56 w-full overflow-hidden">
+            <div className="h-56 w-full overflow-hidden ">
               <img
                 src={service.image}
                 alt={service.serviceName}
-                className="h-full w-full object-cover hover:scale-110 transition-transform duration-500"
+                className="h-full w-full object-cover hover:scale-110 transition-transform duration-500 "
               />
             </div>
 
-            <div className="p-5">
+            <div className="p-5 ">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">
                 {service.serviceName}
               </h3>
@@ -66,7 +66,7 @@ const ServicesPage = () => {
                 {service.description}
               </p>
 
-              <div className="flex justify-between items-center mb-3">
+              <div className="flex justify-between items-center mb-3 ">
                 <span className="text-blue-700 font-semibold text-lg">
                   ${service.price}
                 </span>
@@ -81,7 +81,7 @@ const ServicesPage = () => {
               </div>
 
               <button
-                className="btn w-full rounded-lg mt-2 bg-blue-400 text-white hover:bg-blue-500 transition"
+                className="btn w-full rounded-lg mt-2  text-white hover:bg-[#17436c]  bg-[#c67033] hover:text-whit transition"
                 onClick={() =>
                   document.getElementById("my_modal_1").showModal()
                 }
@@ -95,9 +95,9 @@ const ServicesPage = () => {
 
       {/* Booking Modal */}
       <dialog id="my_modal_1" className="modal">
-        <div className="modal-box bg-white/90 backdrop-blur-md border border-gray-200">
+        <div className="modal-box bg-white/70 backdrop-blur-md border-0 rounded-2xl">
           <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            <button className="btn btn-sm btn-circle btn-ghost border-0 hover:text-red-800 absolute right-2 top-2">
               ✕
             </button>
           </form>
@@ -124,7 +124,7 @@ const ServicesPage = () => {
 
               <button
                 type="submit"
-                className="btn btn-neutral hover:bg-blue-500 hover:text-white mt-4 rounded-lg w-full"
+                className="btn btn-neutral border-0 bg-[#c67033] hover:bg-[#17436c] text-white mt-4 rounded-lg w-full"
               >
                 Confirm Booking
               </button>

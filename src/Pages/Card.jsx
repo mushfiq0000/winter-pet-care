@@ -33,7 +33,7 @@ const Card = () => {
               <div className="card-actions justify-end mt-2">
                 <Link
                   to={`/view-details/${serviceId}`}
-                  className="btn btn-sm bg-blue-400 text-white hover:bg-blue-500 border-none"
+                  className="btn btn-sm  text-white hover:bg-[#17436c]  bg-[#c67033] hover:text-whit border-none"
                 >
                   View Details
                 </Link>

@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ContextData } from "../Context/ContextData";
+import { FiExternalLink } from "react-icons/fi";
 import "./banner.css"
 
 const Banner = () => {
@@ -72,12 +73,8 @@ const Banner = () => {
                   {slide.title}
                 </h2>
                 <p className="text-md sm:text-lg md:text-xl mb-6">{slide.subtitle}</p>
-                <Link
-                  to="/services"
-                  className="inline-block px-6 py-2 border-2 border-white text-white font-semibold rounded hover:bg-yellow-400 hover:border-yellow-400 hover:text-black transition duration-300"
-                >
-                  Explore Now
-                </Link>
+                  <Link to={"/services"} className="btn border-0 bg-[#153f67] text-white hover:bg-[#c67033] rounded-lg p-6"><FiExternalLink /> Explore Now</Link>
+
               </div>
             </div>
           </div>
