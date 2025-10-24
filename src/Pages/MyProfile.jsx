@@ -20,7 +20,7 @@ const MyProfile = () => {
         setUser({ ...user, photoURL: photo });
       })
       .catch((error) => {
-      toast.error(error.message || "Please try again.");
+        toast.error(error.message || "Please try again.");
       });
     form.reset();
   };
@@ -28,11 +28,39 @@ const MyProfile = () => {
   return (
     <div className="min-h-screen bg-[#153f67] flex flex-col justify-center items-center p-4">
       <div className="bg-white w-full max-w-lg rounded-3xl shadow-2xl p-8 flex flex-col items-center space-y-6 transform transition-transform duration-300 hover:scale-105">
-        <img
-          src={user.photoURL}
-          alt=""
-          className="w-40 h-40 rounded-full border-4 border-[#c67033] object-cover hover:ring-4 hover:ring-[#c67033] transition-all duration-300"
-        />
+        
+
+        <div>
+          {/* Open the modal using document.getElementById('ID').showModal() method */}
+          <button
+            className=""
+            onClick={() => document.getElementById("my_modal_2").showModal()}
+          >
+
+            <img
+              src={user.photoURL}
+              alt=""
+              className="w-40 h-40 rounded-full border-4 border-[#c67033] object-cover hover:ring-4 hover:ring-[#c67033] transition-all duration-300"
+            />
+
+
+          </button>
+          <dialog id="my_modal_2" className="modal">
+            <div className="modal-box flex items-center justify-center">
+
+              <img 
+              src={user.photoURL} 
+              alt="" 
+              className="h-150 w-150 object-contain"
+              />
+
+            </div>
+            <form method="dialog" className="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        </div>
+
         <h2 className="text-3xl font-bold text-[#153f67]">
           {user.displayName}
         </h2>
@@ -86,7 +114,7 @@ const MyProfile = () => {
                   type="submit"
                   className="btn btn-neutral border-0 bg-[#c67033] hover:bg-[#17436c] text-white mt-4 rounded-lg w-full"
                 >
-                  Confirm Booking
+                  Update Profile
                 </button>
               </fieldset>
             </form>

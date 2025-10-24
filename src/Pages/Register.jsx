@@ -14,7 +14,7 @@ const Register = () => {
   const { loading } = use(ContextData);
   const location = useLocation();
   const [passError, setPassError] = useState('')
-  const [emailError, setEmailError] = useState('')
+
 
   const navigate = useNavigate();
 
@@ -33,22 +33,15 @@ const Register = () => {
     const password = form.password.value;
 
 
-    const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
           if (!passRegex.test(password)) {
              toast.error(
-              "⚠️ Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@, $, !, %, , ?, &)."
+              "⚠️ Password must be at least 6 characters long and include both uppercase and lowercase letters."
             );
             setPassError("Please choose a stronger password. Try a mix of letters, numbers and symbols.")
             return;
           }else{
             setPassError("")
-          }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if(!emailRegex.test(email)){
-            setEmailError("Please enter a valid email address (e.g., example@domain.com).")
-          }else{
-            setEmailError("")
           }
 
 
@@ -61,7 +54,7 @@ const Register = () => {
             setUser({ ...user, displayName: name, photoURL: photo });
           })
           .catch((error) => {
-            toast.error(error.message || "Please try again.");
+            setPassError(error.message || "Please try again.");
           });
         form.reset();
         Swal.fire({
@@ -71,7 +64,7 @@ const Register = () => {
         });
       })
       .catch((error) => {
-        toast.error(error.message || "Failed to login. Please try again.");
+        setPassError(error.message || "Failed to login. Please try again.");
       });
   };
 
@@ -123,7 +116,6 @@ const Register = () => {
                 placeholder="Email"
                 required
               />
-              <p className="text-red-600 font-semibold">{emailError}</p>
 
               {/* password */}
               <div className="relative">
