@@ -1,16 +1,31 @@
-# React + Vite
+# WarmPaws Pet Care
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Project Link](https://pet-care-service-e83d1.web.app/)
 
-Currently, two official plugins are available:
+## Project Purpose
+Winter Pet Care is a web application designed to provide pet owners with convenient access to pet care services. Users can view available services, manage appointments, and handle account authentication seamlessly. The platform is built to enhance user experience with a responsive and interactive UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+- **User Authentication:** Sign up, login, and Google account integration.
+- **Forget Password:** Reset your password via Google email.
+- **Service Management:** View, search, and book pet care services.
+- **Input Validation:** All forms include input length limits and validation for better UX.
+- **Responsive Design:** Mobile-friendly interface for smooth browsing on any device.
 
-## React Compiler
+## NPM Packages Used
+- [React](https://reactjs.org/) - Front-end library for building UI.
+- [React Router](https://reactrouter.com/) - Routing and navigation.
+- [React Hot Toast](https://react-hot-toast.com/) - Notifications and alerts.
+- [React Icons](https://react-icons.github.io/react-icons/) - Icon library.
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework.
+- [DaisyUI](https://daisyui.com/) - TailwindCSS components for faster UI design.
+- [Firebase](https://firebase.google.com/) - Authentication and backend services.
+- [Slick Carousel](https://kenwheeler.github.io/slick/) - Carousel/slider functionality.
+- [React Slick](https://react-slick.neostack.com/) - React wrapper for Slick Carousel.
+- [SweetAlert2](https://sweetalert2.github.io/) - Beautiful alerts and popups.
+- [React Fast Marquee](https://www.npmjs.com/package/react-fast-marquee) - Smooth scrolling marquee for text/content.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to Run Locally
+1. Clone the repository:
+```bash
+git clone https://github.com/mushfiq0000/winter-pet-care.git
