@@ -79,10 +79,7 @@ const ExtraSection = () => {
       <section className="py-12 px-6 ">
         <h2
           className="text-3xl md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__fadeInUp"
-          style={{
-            animationDelay: "3s",
-            animationIterationCount: 2,
-          }}
+         
         >
           ❄️ Winter Care Tips for Pets
         </h2>
@@ -102,11 +99,8 @@ const ExtraSection = () => {
       </section>
       <div className="py-10">
         <h2
-          className="text-3xl text-black md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__fadeInUp"
-          style={{
-            animationDelay: "5s",
-            animationIterationCount: 2,
-          }}
+          className="text-3xl md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__fadeInUp"
+          
         >
           🧑‍⚕️ Meet Our Expert Vets
         </h2>
@@ -150,7 +144,7 @@ const ExtraSection = () => {
           {winterEssentials.map((item) => (
             <div
               key={item.id}
-              className="bg-[#153f67] p-5 rounded-xl shadow-lg hover:scale-105 transition-transform"
+              className="bg-[#153f67] p-5 rounded-xl shadow-lg hover:scale-105"
             >
               <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
               <p className="text-sm">{item.detail}</p>
