@@ -31,7 +31,7 @@ const Navbar = () => {
           `mr-2 p-2 transition-all  duration-10 ${
             isActive
               ? "text-white border-b-2 border-[#c67033]"
-              : " text-[#c67033]"
+              : ""
           }`
         }
         to="/"
@@ -48,7 +48,7 @@ const Navbar = () => {
           `mr-2 p-2  transition-all  duration-10 ${
             isActive
               ? "text-white border-b-2 border-[#c67033]"
-              : " text-[#c67033]"
+              : " "
           }`
         }
         to="/services"
@@ -63,7 +63,7 @@ const Navbar = () => {
           `mr-2 p-2  transition-all  duration-10 ${
             isActive
               ? "text-white border-b-2 border-[#c67033]"
-              : " text-[#c67033]"
+              : ""
           }`
         }
         to="/profile"
@@ -98,7 +98,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="bg-[#153f67] menu menu-sm dropdown-content  rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="bg-[#c67033] text-black menu menu-sm dropdown-content z-50  rounded-xl  mt-3 w-52 p-2 shadow"
           >
             {link}
           </ul>
