@@ -25,22 +25,22 @@ const winterTips = [
   },
 ];
 
-// Expert Vets data
+
 const experts = [
   {
     id: 1,
-    name: "Dr. Anika Rahman",
+    name: "Dr. Tasnim Iram",
     specialization: "Dog & Cat Health",
-    experience: "10 years",
+    phoneNo: "+88065432198",
     qualification: "DVM, Veterinary Medicine",
     photo:
-      "https://i.ibb.co/Hy6xMGD/360-F-320744517-Ta-Gk-T7a-Rlqq-Wdf-GUuz-RKDABt-FEo-N5-Ci-O.jpg",
+      "https://i.ibb.co.com/zyhYLJP/Whats-App-Image-2025-10-25-at-23-06-35-9f95212f.jpg",
   },
   {
     id: 2,
     name: "Dr. Farhan Alam",
     specialization: "Pet Nutrition & Diet",
-    experience: "8 years",
+    phoneNo: "+88012345670",
     qualification: "DVM, Animal Nutrition",
     photo: "https://i.ibb.co/cXYWx0Xq/images-1.jpg",
   },
@@ -48,7 +48,7 @@ const experts = [
     id: 3,
     name: "Dr. Lina Chowdhury",
     specialization: "Exotic Pets & Birds",
-    experience: "6 years",
+    phoneNo: "+88076543215",
     qualification: "DVM, Exotic Animal Care",
     photo:
       "https://i.ibb.co/0jpsnh7J/profile-photo-attractive-family-doc-600nw-1724693776.webp",
@@ -57,12 +57,13 @@ const experts = [
     id: 4,
     name: "Dr. Imran Hossain",
     specialization: "Surgery & Emergency Care",
-    experience: "12 years",
+    phoneNo: "+88056677889",
     qualification: "DVM, Veterinary Surgery",
     photo:
       "https://i.ibb.co/q4D08zW/360-F-707893096-yj-V8-CEQAdg7fzs-PAYrwx-R8wu-FURZgb-VU.jpg",
   },
 ];
+
 
 // 1 More Extra Section
 const winterEssentials = [
@@ -121,7 +122,7 @@ const ExtraSection = () => {
                 {details.specialization}
               </p>
               <p className=" text-sm mb-1">{details.qualification}</p>
-              <p className=" text-sm mb-2">Experience: {details.experience}</p>
+              <p className=" text-sm mb-2">PhoneNo: {details.phoneNo}</p>
             </div>
           ))}
         </div>
