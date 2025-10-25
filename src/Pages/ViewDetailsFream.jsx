@@ -83,9 +83,6 @@ const ViewDetailsFream = () => {
           </div>
         </div>
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 };
