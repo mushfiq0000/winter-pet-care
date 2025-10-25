@@ -9,6 +9,7 @@ import MyProfile from "../Pages/MyProfile";
 import Register from "../Pages/Register";
 import Services from "../Pages/Services";
 import ViewDetails from "../Pages/ViewDetails";
+import ErrorPage from "../Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
         Component: Forget,
       }
     ]
+  },
+  {
+    path: "/*",
+    Component:ErrorPage
   },
 ]);
 
