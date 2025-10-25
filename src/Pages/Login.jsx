@@ -122,7 +122,7 @@ const Login = () => {
                 />
                 <span
                   onClick={() => setShow(!show)}
-                  className="absolute right-4 top-9 text-lg cursor-pointer z-50"
+                  className="absolute right-4 top-7 text-lg cursor-pointer z-50"
                 >
                   {show ? <RiEyeCloseFill /> : <FaEye />}
                 </span>
