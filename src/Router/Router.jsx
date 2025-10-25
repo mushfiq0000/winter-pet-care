@@ -1,19 +1,19 @@
 import { createBrowserRouter } from "react-router";
-import mainLayout from "../Layout/mainLayout";
-import Home from "../Pages/Home";
-import MyProfile from "../Pages/MyProfile";
-import ViewDetails from "../Pages/ViewDetails";
-import AuthLayout from "../Layout/AuthLayout";
-import Login from "../Pages/Login";
-import Register from "../Pages/Register";
 import PrivateRoute from "../Context/PrivateRoute";
-import Services from "../Pages/Services";
+import AuthLayout from "../Layout/AuthLayout";
+import HomeLayout from "../Layout/HomeLayout";
 import Forget from "../Pages/Forget";
+import Home from "../Pages/Home";
+import Login from "../Pages/Login";
+import MyProfile from "../Pages/MyProfile";
+import Register from "../Pages/Register";
+import Services from "../Pages/Services";
+import ViewDetails from "../Pages/ViewDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: mainLayout,
+    Component: HomeLayout,
     children:[
       {
         path:"/",

@@ -36,7 +36,7 @@ const ServicesPage = () => {
       {/* Toast Container */}
       <Toaster position="top-center" reverseOrder={false} />
 
-      <h2 className="text-4xl font-bold text-center text-[#17436c] mb-10 animate__animated animate__fadeInDown">
+      <h2 className="text-4xl font-bold text-center text-white mb-10 animate__animated animate__fadeInDown">
         ❄️ Winter Care Services for Your Pets 🐾
       </h2>
 

@@ -127,7 +127,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="dropdown-content -ml-30  bg-[#c67033]  z-1 w-70 p-2 shadow-sm rounded-xl"
+                className="dropdown-content -ml-30  bg-[#c67033]  z-50 w-70 p-2 shadow-sm rounded-xl"
               >
                 <p className="flex items-center justify-center gap-2"><MdDriveFileRenameOutline />{user.displayName}</p>
                 <p className="flex items-center justify-center gap-2"><MdMarkEmailRead />{user.email}</p>

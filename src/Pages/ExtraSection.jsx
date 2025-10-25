@@ -64,13 +64,21 @@ const experts = [
   },
 ];
 
+// 1 More Extra Section
+const winterEssentials = [
+  { id: 1, name: "Paws & Claws Store", detail: "Best winter gear and accessories for pets." },
+  { id: 2, name: "Furry Friends Hub", detail: "Nutritious food and warm clothing for pets." },
+  { id: 3, name: "Happy Tails Supplies", detail: "Heated beds and cozy blankets available." },
+  { id: 4, name: "The Pet Corner", detail: "All-in-one shop for winter pet essentials." },
+];
+
+
 const ExtraSection = () => {
   return (
     <div>
-      {/* tips section */}
       <section className="py-12 px-6 ">
         <h2
-          className="text-3xl md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__bounce"
+          className="text-3xl md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__fadeInUp"
           style={{
             animationDelay: "3s",
             animationIterationCount: 2,
@@ -92,11 +100,9 @@ const ExtraSection = () => {
           </div>
         </Marquee>
       </section>
-
-      {/* Expert Vets section */}
       <div className="py-10">
         <h2
-          className="text-3xl md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__rubberBand"
+          className="text-3xl text-black md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__fadeInUp"
           style={{
             animationDelay: "5s",
             animationIterationCount: 2,
@@ -109,7 +115,7 @@ const ExtraSection = () => {
           {experts.map((details) => (
             <div
               key={details.id}
-              className="bg-[#17436c] text-white rounded-2xl shadow-lg p-5 flex flex-col items-center hover:scale-105 transition-transform duration-300"
+              className="bg-[#17436c] text-white rounded-2xl shadow-lg p-5 flex flex-col items-center hover:scale-105"
             >
               <img
                 src={details.photo}
@@ -121,14 +127,10 @@ const ExtraSection = () => {
                 {details.specialization}
               </p>
               <p className=" text-sm mb-1">{details.qualification}</p>
-              <p className=" text-sm mb-2">
-                Experience: {details.experience}
-              </p>
+              <p className=" text-sm mb-2">Experience: {details.experience}</p>
             </div>
           ))}
         </div>
-
-        {/* doctor naem */}
         <div className="mt-10 px-5">
           <Marquee gradient={false} speed={50}>
             {experts.map((doctor) => (
@@ -139,6 +141,23 @@ const ExtraSection = () => {
           </Marquee>
         </div>
       </div>
+
+      <section className="py-12 px-6 rounded-2xl my-10">
+        <h2 className="text-3xl md:text-5xl py-5 font-bold text-center mb-8 animate__animated animate__fadeInUp">
+          🐾 Winter Essentials for Pets
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+          {winterEssentials.map((item) => (
+            <div
+              key={item.id}
+              className="bg-[#153f67] p-5 rounded-xl shadow-lg hover:scale-105 transition-transform"
+            >
+              <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
+              <p className="text-sm">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

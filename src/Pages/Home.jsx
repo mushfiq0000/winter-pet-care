@@ -15,9 +15,9 @@ const Home = () => {
   }
 
   return (
-    <div className="bg-gray-100 ">
-      <h1 className="text-5xl py-10 font-bold flex item-center justify-center">
-        <p className="animate__animated animate__bounce"> 👋 </p> Welcome to WarmPaws Pet Care{" "}
+    <div className="text-white">
+      <h1 className="text-5xl py-10 font-bold flex item-center justify-center animate__animated animate__fadeInUp">
+        <p className="animate__animated animate__bounce"> 👋 </p > Welcome to WarmPaws Pet Care{" "}
       </h1>
       <div className="flex justify-center px-5 md:px-50 py-9">
         <Banner></Banner>
